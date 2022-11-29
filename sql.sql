@@ -3,7 +3,7 @@ use universidade;
 use master; drop database universidade;
 go
 create table unid_univer (
-    id_unid int primary key,
+    id_unid int primary key IDENTITY(1,1),
     telefone_unid varchar(11),
     endereco_unid varchar(200),
     lucro_mensal numeric(7, 2),
@@ -16,7 +16,7 @@ create table uni_curso(
 );
 
 create table curso(
-    id_curso int constraint cur_id_pk primary key,
+    id_curso int constraint cur_id_pk primary key IDENTITY(1,1),
     periodo_curso varchar(10),
     nome_curso varchar(200),
     preco_curso numeric(6,2),
@@ -25,14 +25,14 @@ create table curso(
 );
 
 create table departamento (
-    id_dep int constraint dep_id_pk primary key,
+    id_dep int constraint dep_id_pk primary key IDENTITY(1,1),
     telefone_dep varchar(11),
     nome_dep varchar(20),
     id_unid_dep int references unid_univer,
 );
 
 create table aluno (
-    id_aluno int constraint alu_id_pk primary key,
+    id_aluno int constraint alu_id_pk primary key IDENTITY (1,1),
     cpf_aluno char(11),
     endereco_aluno varchar(200),
     telefone_aluno varchar(11),
@@ -42,7 +42,7 @@ create table aluno (
 );    
 
 create table aula(
-    id_aula int constraint aula_id_pk Primary Key,
+    id_aula int constraint aula_id_pk Primary Key IDENTITY (1,1),
     duracao_aula char(4),
     horario_aula char(4),
     id_curso_aula int references curso
@@ -59,7 +59,7 @@ create table aula_sala(
 );
 
 create table professor(
-    id_prof int constraint prof_id_pk primary key,
+    id_prof int constraint prof_id_pk primary key IDENTITY (1,1),
     cpf_prof char(11),
     telefone_prof varchar(11),
     endereco_prof varchar(200),
@@ -68,7 +68,7 @@ create table professor(
 );
 
 create table sala(
-    id_sala int constraint sala_id_pk primary key,
+    id_sala int constraint sala_id_pk primary key IDENTITY (1,1),
     numero_sala char(2),
     andar_sala char(2),
     tamanho_sala numeric(5,2)
